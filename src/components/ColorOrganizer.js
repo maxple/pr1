@@ -9,7 +9,32 @@ class ColorOrganizer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            colors: []
+            colors: [
+                {
+                    id: v4(),
+                    title: 'ocean blue',
+                    color: '#0077be',
+                    rating: 0
+                },
+                {
+                    id: v4(),
+                    title: 'tomato',
+                    color: '#ff6347',
+                    rating: 0
+                },
+                {
+                    id: v4(),
+                    title: 'lawn',
+                    color: '#87F717',
+                    rating: 0
+                },
+                {
+                    id: v4(),
+                    title: 'party pink',
+                    color: '#da2b42',
+                    rating: 0
+                },
+            ]
         };
         this.addColor = this.addColor.bind(this);
         this.rateColor = this.rateColor.bind(this);

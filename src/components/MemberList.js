@@ -58,11 +58,11 @@ class MemberList extends Component {
         return true;
     }
 
-    componentWillUpdate() {
+    componentWillUpdate(nextProps, nextState) {
         console.log('componentWillUpdate-' + (new Date() - startDate));
     }
 
-    componentDidUpdate() {
+    componentDidUpdate(prevProps, prevState) {
         console.log('componentDidUpdate-' + (new Date() - startDate));
     }
 
