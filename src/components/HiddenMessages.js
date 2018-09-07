@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import HiddenMessage from './hiddenMessage'
+import HiddenMessage from './hoc/HiddenMessage'
 
 export default class HiddenMessages extends Component {
     constructor(props) {

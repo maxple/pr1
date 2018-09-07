@@ -1,48 +1,11 @@
 import React from 'react';
 import {render} from 'react-dom';
-import App from './components/Timeline';
+import PopUpButton from './components/hoc/PopUpButton';
 
-const historicDatesForSkiing = [
-    {
-        year: 1879,
-        event: "Ski Manufacturing Begins"
-    },
-    {
-        year: 1882,
-        event: "US Ski Club Founded"
-    },
-    {
-        year: 1924,
-        event: "First Winter Olympics Held"
-    },
-    {
-        year: 1926,
-        event: "First US Ski Shop Opens"
-    },
-    {
-        year: 1932,
-        event: "North Americas First Rope Tow Spins"
-    },
-    {
-        year: 1936,
-        event: "First Chairlift Spins"
-    },
-    {
-        year: 1949,
-        event: "Squaw Valley, Mad River Glen Open"
-    },
-    {
-        year: 1958,
-        event: "First Gondola Spins"
-    },
-    {
-        year: 1964,
-        event: "Plastic Buckle Boots Available"
-    }
-];
-
-render(
-    <App name="H"
-         data={historicDatesForSkiing} />,
+render(<PopUpButton hide={true}
+                    txt="toggle popup">
+        <h1>Hidden Content</h1>
+        <p>This content will start off hidden</p>
+    </PopUpButton>,
     document.getElementById('root')
 );
