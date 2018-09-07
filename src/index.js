@@ -42,7 +42,7 @@ const historicDatesForSkiing = [
 ];
 
 render(
-    <App name="History of Skiing"
+    <App name="H"
          data={historicDatesForSkiing} />,
     document.getElementById('root')
 );
