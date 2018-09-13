@@ -1,19 +1,20 @@
 import React from 'react'
+import actionTypes from './CountdownActionTypes';
+import dispatcher from './CountdownDispatcher';
 
-const CountdownActions = dispatcher =>
-    ({
-        tick(count) {
-            dispatcher.handleAction({
-                type: 'TICK',
-                count: count - 1
-            })
-        },
-        reset(count) {
-            dispatcher.handleAction({
-                type: 'RESET',
-                count
-            })
-        }
-    });
+const CountdownActions = {
+    tick(count) {
+        dispatcher.dispatch({
+            type: actionTypes.TICK,
+            count
+        })
+    },
+    reset(count) {
+        dispatcher.dispatch({
+            type: actionTypes.RESET,
+            count
+        })
+    }
+};
 
 export default CountdownActions;

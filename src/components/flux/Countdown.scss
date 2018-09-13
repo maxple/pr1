@@ -10,24 +10,24 @@ html, body {
 #root {
   height: calc(100% - 2.5em);
   margin: 1em;
-  border: 0.25em double orange;
+  border: 0.25em double #ffddbf;
   color: blue;
   border-radius: 0.5em;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: "Knewave", fantasy, Arial;
-  font-size: 5em;
-}
+  font-size: 2em;
 
-#root span {
-  display: block;
-  text-align: center;
-  cursor: pointer;
-  font-size: 0.5em;
-}
+  span {
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    font-size: 0.5em;
+  }
 
-#root span:last-child {
-  color: grey;
-  font-size: 0.5em;
+  span:last-child {
+    color: grey;
+    font-size: 0.5em;
+  }
 }
