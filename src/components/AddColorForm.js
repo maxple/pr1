@@ -1,16 +1,16 @@
-import React from 'react';
+import React from 'react'
 import PropTypes from 'prop-types'
 import '../stylesheets/AddColorForm.scss'
 
-const AddColorForm = ({ onNewColor = f => f }) => {
-    let _title, _color;
+const AddColorForm = ({onNewColor = f => f}) => {
+    let _title, _color
     const submit = e => {
-        e.preventDefault();
-        onNewColor(_title.value, _color.value);
-        _title.value = '';
-        _color.value = '#000000';
-        _title.focus();
-    };
+        e.preventDefault()
+        onNewColor(_title.value, _color.value)
+        _title.value = ''
+        _color.value = '#000000'
+        _title.focus()
+    }
     return (
         <form className="add-color"
               onSubmit={submit}>
@@ -24,10 +24,10 @@ const AddColorForm = ({ onNewColor = f => f }) => {
             <button>ADD</button>
         </form>
     )
-};
+}
 
 AddColorForm.propTypes = {
-    onNewColor: PropTypes.func
-};
+    onNewColor: PropTypes.func,
+}
 
-export default AddColorForm;
+export default AddColorForm

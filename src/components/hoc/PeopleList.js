@@ -1,11 +1,11 @@
 import React from 'react'
 
-const PeopleList = ({ data }) =>
+const PeopleList = ({data}) =>
     <ol>
         {data.results.map((person, i) => {
-            const { first, last } = person.name;
+            const {first, last} = person.name
             return <li key={i}>{first} {last}</li>
         })}
-    </ol>;
+    </ol>
 
-export default PeopleList;
+export default PeopleList

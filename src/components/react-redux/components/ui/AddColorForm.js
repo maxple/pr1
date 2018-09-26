@@ -1,17 +1,17 @@
 import PropTypes from 'prop-types'
 import '../../stylesheets/AddColorForm.scss'
 
-const AddColorForm = ({ onNewColor = f => f }) => {
+const AddColorForm = ({onNewColor = f => f}) => {
 
-    let _title, _color;
+    let _title, _color
 
     const submit = e => {
-        e.preventDefault();
-        onNewColor(_title.value, _color.value);
-        _title.value = '';
-        _color.value = '#000000';
+        e.preventDefault()
+        onNewColor(_title.value, _color.value)
+        _title.value = ''
+        _color.value = '#000000'
         _title.focus()
-    };
+    }
 
     return (
         <form className="add-color"
@@ -27,10 +27,10 @@ const AddColorForm = ({ onNewColor = f => f }) => {
         </form>
     )
 
-};
+}
 
 AddColorForm.propTypes = {
-    onNewColor: PropTypes.func
-};
+    onNewColor: PropTypes.func,
+}
 
 export default AddColorForm

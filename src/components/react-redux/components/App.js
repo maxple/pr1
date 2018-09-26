@@ -1,4 +1,4 @@
-import {Menu, NewColor, Colors} from './containers'
+import {Colors, Menu, NewColor} from './containers'
 import '../stylesheets/APP.scss'
 
 const App = () =>
@@ -6,6 +6,6 @@ const App = () =>
         <Menu />
         <NewColor />
         <Colors />
-    </div>;
+    </div>
 
 export default App

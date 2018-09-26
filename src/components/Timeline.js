@@ -1,42 +1,42 @@
 import React, {Component} from 'react'
 import d3 from 'd3'
 
-const Canvas = ({ children }) =>
+const Canvas = ({children}) =>
     <svg height="200"
          width="1000">
         {children}
-    </svg>;
+    </svg>
 
-const TimelineDot = ({ position, txt }) =>
+const TimelineDot = ({position, txt}) =>
     <g transform={`translate(${position},0)`}>
         <circle cy={160}
                 r={5}
-                style={{ fill: 'blue' }} />
+                style={{fill: 'blue'}} />
         <text y={115}
               x={-95}
               transform="rotate(-45)"
-              style={{ fontSize: '10px' }}>{txt}</text>
-    </g>;
+              style={{fontSize: '10px'}}>{txt}</text>
+    </g>
 
 class Timeline extends Component {
-    constructor({ data = [] }) {
-        const times = d3.extent(data.map(d => d.year));
-        const range = [50, 750];
-        super({ data });
-        this.scale = d3.time.scale().domain(times).range(range);
-        this.state = { data, times, range }
+    constructor({data = []}) {
+        const times = d3.extent(data.map(d => d.year))
+        const range = [50, 750]
+        super({data})
+        this.scale = d3.time.scale().domain(times).range(range)
+        this.state = {data, times, range}
     }
 
     render() {
-        const { data } = this.state;
-        const { scale } = this;
+        const {data} = this.state
+        const {scale} = this
         return (
             <div className="timeline">
                 <h1>{this.props.name} Timeline</h1>
                 <Canvas>
                     {data.map((d, i) =>
                         <TimelineDot position={scale(d.year)}
-                                     txt={`${d.year} - ${d.event}`} />
+                                     txt={`${d.year} - ${d.event}`} />,
                     )}
                 </Canvas>
             </div>
@@ -44,4 +44,4 @@ class Timeline extends Component {
     }
 }
 
-export default Timeline;
+export default Timeline

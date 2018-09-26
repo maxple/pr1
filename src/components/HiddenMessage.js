@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 
 export default class HiddenMessage extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
-            hidden: true
+            hidden: true,
         }
     }
 
@@ -13,13 +13,13 @@ export default class HiddenMessage extends Component {
     }
 
     render() {
-        const { children } = this.props;
-        const { hidden } = this.state;
+        const {children} = this.props
+        const {hidden} = this.state
 
         return (
             <p>
                 {
-                    hidden ? children.replace(/[a-zA-Z0-9]/g, "x") : children
+                    hidden ? children.replace(/[a-zA-Z0-9]/g, 'x') : children
                 }
             </p>
         )

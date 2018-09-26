@@ -15,7 +15,7 @@ class Color extends Component {
             timestamp,
             onRemove,
             onRate,
-        } = this.props;
+        } = this.props
 
         return (
             <section className="color"
@@ -25,7 +25,7 @@ class Color extends Component {
                     <FaTrash />
                 </button>
                 <div className="color"
-                     style={{ backgroundColor: color }}>
+                     style={{backgroundColor: color}}>
                 </div>
                 <TimeAgo timestamp={timestamp} />
                 <div>
@@ -43,13 +43,13 @@ Color.propTypes = {
     color: PropTypes.string.isRequired,
     rating: PropTypes.number,
     onRemove: PropTypes.func,
-    onRate: PropTypes.func
-};
+    onRate: PropTypes.func,
+}
 
 Color.defaultProps = {
     rating: 0,
     onRemove: f => f,
-    onRate: f => f
-};
+    onRate: f => f,
+}
 
 export default Color

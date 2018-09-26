@@ -1,78 +1,78 @@
 import React, {Component} from 'react'
 
-const startDate = new Date();
+const startDate = new Date()
 
 const getFakeMembers = (count = 5) => new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', `https://api.randomuser.me/?nat=US&results=${count}`);
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET', `https://api.randomuser.me/?nat=US&results=${count}`)
     xhr.onload = () => (xhr.status === 200)
         ? resolve(JSON.parse(xhr.response).results)
-        : reject(Error(xhr.statusText));
-    xhr.onerror = err => reject(err);
-    xhr.send();
-});
+        : reject(Error(xhr.statusText))
+    xhr.onerror = err => reject(err)
+    xhr.send()
+})
 
-const Member = ({ email, picture, name, location }) =>
+const Member = ({email, picture, name, location}) =>
     <div>
         <img src={picture.thumbnail}
              alt="" />
         <h1>{name.first} {name.last}</h1>
-        <p><a href={"mailto:" + email}>{email}</a></p>
+        <p><a href={'mailto:' + email}>{email}</a></p>
         <p>{location.city}, {location.state}</p>
-    </div>;
+    </div>
 
 class MemberList extends Component {
     constructor() {
-        console.log('constructor-' + (new Date() - startDate));
-        super();
+        console.log('constructor-' + (new Date() - startDate))
+        super()
         this.state = {
             members: [],
             loading: false,
-            error: null
+            error: null,
         }
     }
 
     componentWillMount() {
-        console.log('componentWillMount-' + (new Date() - startDate));
-        this.setState({ loading: true });
+        console.log('componentWillMount-' + (new Date() - startDate))
+        this.setState({loading: true})
         getFakeMembers(this.props.count).then(
             members => {
-                this.setState({ members, loading: false })
+                this.setState({members, loading: false})
             },
             error => {
-                this.setState({ error, loading: false })
-            }
+                this.setState({error, loading: false})
+            },
         )
     }
 
     componentDidMount() {
-        console.log('componentDidMount-' + (new Date() - startDate));
+        console.log('componentDidMount-' + (new Date() - startDate))
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log('componentWillReceiveProps-' + (new Date() - startDate));
+        console.log('componentWillReceiveProps-' + (new Date() - startDate))
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        console.log('shouldComponentUpdate-' + (new Date() - startDate));
-        return true;
+        console.log('shouldComponentUpdate-' + (new Date() - startDate))
+        return true
     }
 
     componentWillUpdate(nextProps, nextState) {
-        console.log('componentWillUpdate-' + (new Date() - startDate));
+        console.log('componentWillUpdate-' + (new Date() - startDate))
     }
 
     componentDidUpdate(prevProps, prevState) {
-        console.log('componentDidUpdate-' + (new Date() - startDate));
+        console.log('componentDidUpdate-' + (new Date() - startDate))
     }
 
     componentWillUnmount() {
-        console.log('componentWillUnmount-' + (new Date() - startDate));
+        console.log('componentWillUnmount-' + (new Date() - startDate))
     }
 
     render() {
-        console.log('render-' + (new Date() - startDate));
-        const { members, loading, error } = this.state;
+        console.log('render-' + (new Date() - startDate))
+        const {members, loading, error} = this.state
         return (
             <div>
                 {
@@ -85,10 +85,10 @@ class MemberList extends Component {
                 }
                 {error
                     ? <p>Error Loading Members: {error.message}</p>
-                    : ""}
+                    : ''}
             </div>
         )
     }
 }
 
-export default MemberList;
+export default MemberList

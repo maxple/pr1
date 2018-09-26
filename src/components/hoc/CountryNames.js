@@ -1,11 +1,11 @@
 import React from 'react'
 
-const CountryNames = ({ data, selected = "" }) =>
+const CountryNames = ({data, selected = ''}) =>
     <select defaultValue={selected}>
-        {data.map(({ name }, i) =>
+        {data.map(({name}, i) =>
             <option key={i}
-                    value={name}>{name}</option>
+                    value={name}>{name}</option>,
         )}
-    </select>;
+    </select>
 
-export default CountryNames;
+export default CountryNames

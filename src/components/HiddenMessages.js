@@ -1,33 +1,33 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 import HiddenMessage from './hoc/HiddenMessage'
 
 export default class HiddenMessages extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             messages: [
-                "The crow crows after midnight",
-                "Bring a watch and dark clothes to the spot",
-                "Jericho Jericho Go"
+                'The crow crows after midnight',
+                'Bring a watch and dark clothes to the spot',
+                'Jericho Jericho Go',
             ],
-            showing: -1
+            showing: -1,
         }
     }
 
     componentWillMount() {
         this.interval = setInterval(() => {
-            let { showing, messages } = this.state;
-            showing = ++showing >= messages.length ? -1 : showing;
-            this.setState({ showing });
+            let {showing, messages} = this.state
+            showing = ++showing >= messages.length ? -1 : showing
+            this.setState({showing})
         }, 1000)
     }
 
     componentWillUnmount() {
-        clearInterval(this.interval);
+        clearInterval(this.interval)
     }
 
     render() {
-        const { messages, showing } = this.state;
+        const {messages, showing} = this.state
 
         return (
             <div>
@@ -36,7 +36,7 @@ export default class HiddenMessages extends Component {
                         <HiddenMessage key={i}
                                        hide={i !== showing}>
                             {message}
-                        </HiddenMessage>
+                        </HiddenMessage>,
                     )
                 }
             </div>

@@ -8,15 +8,15 @@ import {sortFunction} from '../lib/array-helpers'
 export const Menu = connect(
     state =>
         ({
-            sort: state.sort
+            sort: state.sort,
         }),
     dispatch =>
         ({
             onSelect(sortBy) {
                 dispatch(sortColors(sortBy))
-            }
-        })
-)(SortMenu);
+            },
+        }),
+)(SortMenu)
 
 export const NewColor = connect(
     null,
@@ -24,14 +24,14 @@ export const NewColor = connect(
         ({
             onNewColor(title, color) {
                 dispatch(addColor(title, color))
-            }
-        })
-)(AddColorForm);
+            },
+        }),
+)(AddColorForm)
 
 export const Colors = connect(
     state =>
         ({
-            colors: [...state.colors].sort(sortFunction(state.sort))
+            colors: [...state.colors].sort(sortFunction(state.sort)),
         }),
     dispatch =>
         ({
@@ -40,6 +40,6 @@ export const Colors = connect(
             },
             onRate(id, rating) {
                 dispatch(rateColor(id, rating))
-            }
-        })
-)(ColorList);
+            },
+        }),
+)(ColorList)

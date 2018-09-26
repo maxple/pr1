@@ -1,19 +1,19 @@
 import React, {Component} from 'react'
-import PropTypes from "prop-types";
-import actions from './CountdownActions';
-import store from './CountdownStore';
+import PropTypes from 'prop-types'
+import actions from './CountdownActions'
+import store from './CountdownStore'
 import './Countdown.scss'
 
 export default class Countdown extends Component {
 
     constructor() {
-        super();
-        store.on("CHANGE", () => this.setState({ count: store.count }));
+        super()
+        store.on('CHANGE', () => this.setState({count: store.count}))
     }
 
     render() {
-        const { count } = store;
-        const { tick, reset } = actions;
+        const {count} = store
+        const {tick, reset} = actions
 
         if (count) {
             setTimeout(() => tick(count), 100)
@@ -30,5 +30,5 @@ export default class Countdown extends Component {
 Countdown.propTypes = {
     count: PropTypes.number,
     tick: PropTypes.func,
-    reset: PropTypes.func
-};
+    reset: PropTypes.func,
+}

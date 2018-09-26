@@ -1,15 +1,15 @@
-import React from 'react';
+import React from 'react'
 import PropTypes from 'prop-types'
 import '../stylesheets/Star.scss'
 
-const Star = ({ selected = false, onClick = f => f }) =>
-    <div className={(selected) ? "star selected" : "star"}
+const Star = ({selected = false, onClick = f => f}) =>
+    <div className={(selected) ? 'star selected' : 'star'}
          onClick={onClick}>
-    </div>;
+    </div>
 
 Star.propTypes = {
     selected: PropTypes.bool,
-    onclick: PropTypes.func
-};
+    onclick: PropTypes.func,
+}
 
-export default Star;
+export default Star

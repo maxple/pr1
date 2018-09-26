@@ -4,20 +4,20 @@ const DataComponent = (ComposedComponent, url) =>
     class DataComponent extends Component {
 
         constructor(props) {
-            super(props);
+            super(props)
             this.state = {
                 data: [],
-                loading: false
+                loading: false,
             }
         }
 
         componentWillMount() {
-            this.setState({ loading: true });
-            fetch(url)
-                .then(response => response.json())
-                .then(data => this.setState({
+            this.setState({loading: true})
+            fetch(url).
+                then(response => response.json()).
+                then(data => this.setState({
                     loading: false,
-                    data
+                    data,
                 }))
         }
 
@@ -30,6 +30,6 @@ const DataComponent = (ComposedComponent, url) =>
                 </div>
             )
         }
-    };
+    }
 
-export default DataComponent;
+export default DataComponent

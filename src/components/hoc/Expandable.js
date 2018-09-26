@@ -4,8 +4,8 @@ const Expandable = ComposedComponent =>
     class Expandable extends Component {
 
         constructor(props) {
-            super(props);
-            this.state = { collapsed: props.hide === true };
+            super(props)
+            this.state = {collapsed: props.hide === true}
             this.expandCollapse = this.expandCollapse.bind(this)
         }
 
@@ -15,7 +15,7 @@ const Expandable = ComposedComponent =>
 
         expandCollapse() {
             this.setState(prevState => ({
-                collapsed: !prevState.collapsed
+                collapsed: !prevState.collapsed,
             }))
         }
 
@@ -24,6 +24,6 @@ const Expandable = ComposedComponent =>
                                       {...this.state}
                                       {...this.props} />
         }
-    };
+    }
 
-export default Expandable;
+export default Expandable

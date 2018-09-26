@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 
-const MenuButton = ({ children, collapsed, txt, expandCollapse }) =>
+const MenuButton = ({children, collapsed, txt, expandCollapse}) =>
     <div>
         <button onClick={expandCollapse}>{txt}</button>
         {!collapsed
             ? <div>
                 {children}
             </div>
-            : ""}
-    </div>;
+            : ''}
+    </div>
 
-export default MenuButton;
+export default MenuButton
