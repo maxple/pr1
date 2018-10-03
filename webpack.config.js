@@ -3,7 +3,7 @@ var path = require('path')
 module.exports = {
     context: __dirname, // eslint-disable-line no-undef
     devtool: 'source-map',
-    entry: './src/index.js',
+    entry: './index.js',
     output: {
         path: path.join(__dirname, 'dist', 'assets'), // eslint-disable-line no-undef
         filename: 'bundle.js',

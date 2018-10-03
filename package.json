@@ -48,6 +48,12 @@
         "uuid": "3.1.0"
     },
     "jest": {
+        "setupFiles": [
+            "./modules/react-redux/__tests__/global.js"
+        ],
+        "modulePathIgnorePatterns": [
+            "global.js"
+        ],
         "transform": {
             ".*": "<rootDir>/node_modules/jest-css-modules"
         }
