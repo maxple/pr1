@@ -1,6 +1,5 @@
 import C from '../../../constants'
 import {color} from '../../../store/reducers'
-import React from 'react'
 import deepFreeze from 'deep-freeze'
 
 describe('color Reducer', () => {
