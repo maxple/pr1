@@ -12,10 +12,10 @@ export default class CountryList extends Component {
 
     componentWillMount() {
         this.setState({loading: true})
-        fetch('https://restcountries.eu/rest/v1/all').
-            then(response => response.json()).
-            then(json => json.map(country => country.name)).
-            then(countryNames => this.setState({countryNames, loading: false}))
+        fetch('https://restcountries.eu/rest/v1/all')
+            .then(response => response.json())
+            .then(json => json.map(country => country.name))
+            .then(countryNames => this.setState({countryNames, loading: false}))
     }
 
     render() {

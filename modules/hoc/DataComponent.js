@@ -13,9 +13,9 @@ const DataComponent = (ComposedComponent, url) =>
 
         componentWillMount() {
             this.setState({loading: true})
-            fetch(url).
-                then(response => response.json()).
-                then(data => this.setState({
+            fetch(url)
+                .then(response => response.json())
+                .then(data => this.setState({
                     loading: false,
                     data,
                 }))

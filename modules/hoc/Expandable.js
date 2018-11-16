@@ -9,10 +9,9 @@ const Expandable = ComposedComponent =>
                     ? props.collapsed
                     : true,
             }
-            this.expandCollapse = this.expandCollapse.bind(this)
         }
 
-        expandCollapse() {
+        expandCollapse = () => {
             this.setState({collapsed: !this.state.collapsed})
         }
 

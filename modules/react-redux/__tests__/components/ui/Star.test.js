@@ -7,8 +7,8 @@ describe('Star UI Component', () => {
     })
     it('renders selected star', () => {
         expect(
-            shallow(<Star selected={true} />).find('div.selected.star').length).
-            toBe(1)
+            shallow(<Star selected={true} />).find('div.selected.star').length)
+            .toBe(1)
     })
     it('invokes onClick', () => {
         const _click = jest.fn()

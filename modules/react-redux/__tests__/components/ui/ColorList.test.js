@@ -24,7 +24,7 @@ describe('ColorList UI Component', () => {
 
         it('invokes onRate Handler', () => expect(_onRate).toBeCalled())
 
-        it('rates the correct color', () => expect(_onRate).
-            toBeCalledWith('8658c1d0-9eda-4a90-95e1-8001e8eb6036', 4))
+        it('rates the correct color', () => expect(_onRate)
+            .toBeCalledWith('8658c1d0-9eda-4a90-95e1-8001e8eb6036', 4))
     })
 })

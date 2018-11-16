@@ -23,7 +23,9 @@ class Timeline extends Component {
         const times = d3.extent(data.map(d => d.year))
         const range = [50, 750]
         super({data})
-        this.scale = d3.time.scale().domain(times).range(range)
+        this.scale = d3.time.scale()
+            .domain(times)
+            .range(range)
         this.state = {data, times, range}
     }
 
