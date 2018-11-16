@@ -59,8 +59,8 @@
         "modulePathIgnorePatterns": [
             "global.js"
         ],
-        "transform": {
-            ".*": "<rootDir>/node_modules/jest-css-modules"
+        "moduleNameMapper": {
+            "\\.(scss)$": "<rootDir>/node_modules/jest-css-modules"
         },
         "snapshotSerializers": [
             "enzyme-to-json/serializer"
