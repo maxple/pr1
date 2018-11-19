@@ -6,7 +6,10 @@
     "scripts": {
         "lint": "eslint .",
         "start": "webpack-dev-server --mode development",
-        "build": "webpack --mode production"
+        "build": "webpack --mode production",
+        "test": "jest",
+        "posttest": "npm run lint",
+        "coverage": "opener ./coverage/lcov-report/index.html"
     },
     "devDependencies": {
         "autoprefixer": "^9.1.2",
@@ -27,7 +30,7 @@
         "jest": "^23.6.0",
         "jest-css-modules": "^1.1.0",
         "node-sass": "4.5.3",
-        "opener": "1.4.3",
+        "opener": "^1.4.3",
         "postcss-loader": "2.0.6",
         "react-addons-test-utils": "^15.6.2",
         "react-test-renderer": "^16.5.2",
@@ -47,16 +50,18 @@
         "prop-types": "15.6.0",
         "react": "16.0.0",
         "react-dom": "16.0.0",
-        "react-icons": "^3.1.0",
+        "react-icons": "^3.2.2",
         "react-redux": "^5.0.7",
         "redux": "^4.0.0",
         "uuid": "3.1.0"
     },
     "jest": {
         "setupFiles": [
-            "./modules/react-redux/__tests__/global.js"
+            "./__tests__/shim.js",
+            "./__tests__/global.js"
         ],
         "modulePathIgnorePatterns": [
+            "shim.js",
             "global.js"
         ],
         "moduleNameMapper": {
@@ -64,6 +69,19 @@
         },
         "snapshotSerializers": [
             "enzyme-to-json/serializer"
-        ]
+        ],
+        "verbose": true,
+        "collectCoverage": true,
+        "collectCoverageFrom": [
+            "src/**"
+        ],
+        "coverageThreshold": {
+            "global": {
+                "branches": 0,
+                "functions": 0,
+                "lines": 0,
+                "statements": 0
+            }
+        }
     }
 }

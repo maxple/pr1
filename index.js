@@ -1,3 +1,3 @@
-import root_render from './modules/react-redux'
+import root_render from './src/index'
 
 root_render()
