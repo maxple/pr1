@@ -1,18 +1,18 @@
 import { Route, Switch } from 'react-router-dom'
-import { Color, Colors, Menu, NewColor } from './containers'
+import { ColorContainer, ColorsContainer, MenuContainer, NewColorContainer } from './containers'
 import '../stylesheets/APP.scss'
 
 const App = () =>
   <Switch>
     <Route exact
            path="/:id"
-           component={Color} />
+           component={ColorContainer} />
     <Route path="/"
            component={() => (
              <div className="app">
-               <Menu />
-               <NewColor />
-               <Colors />
+               <MenuContainer />
+               <NewColorContainer />
+               <ColorsContainer />
              </div>
            )} />
   </Switch>

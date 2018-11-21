@@ -6,7 +6,7 @@ import { addColor, rateColor, removeColor, sortColors } from '../actions'
 import { findById, sortFunction } from '../lib/array-helpers'
 import ColorDetails from './ui/ColorDetails'
 
-export const NewColor = connect(
+export const NewColorContainer = connect(
   null,
   dispatch =>
     ({
@@ -16,7 +16,7 @@ export const NewColor = connect(
     }),
 )(AddColorForm)
 
-export const Menu = connect(
+export const MenuContainer = connect(
   state =>
     ({
       sort: state.sort,
@@ -29,7 +29,7 @@ export const Menu = connect(
     }),
 )(SortMenu)
 
-export const Colors = connect(
+export const ColorsContainer = connect(
   state =>
     ({
       colors: [...state.colors].sort(sortFunction(state.sort)),
@@ -45,6 +45,6 @@ export const Colors = connect(
     }),
 )(ColorList)
 
-export const Color = connect(
-  ({ colors }, { match }) => findById(colors, match.params.id),
+export const ColorContainer = connect(
+  (state, { match }) => findById(state.colors, match.params.id),
 )(ColorDetails)

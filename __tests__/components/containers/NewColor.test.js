@@ -1,5 +1,5 @@
 import { Provider } from 'react-redux'
-import { NewColor } from '../../../src/components/containers'
+import { NewColorContainer } from '../../../src/components/containers'
 import { addColor } from '../../../src/actions'
 
 const { shallow, mount } = Enzyme
@@ -19,7 +19,7 @@ describe('<NewColor /> Container ', () => {
   it('dispatch invokes addColor action', () => {
     wrapper = mount(
       <Provider store={_store}>
-        <NewColor />
+        <NewColorContainer />
       </Provider>,
     )
     wrapper.find('AddColorFormMock').props().onNewColor('test color', '#FF0000')

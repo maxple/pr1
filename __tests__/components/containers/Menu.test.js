@@ -1,5 +1,5 @@
 import { Provider } from 'react-redux'
-import { Menu } from '../../../src/components/containers'
+import { MenuContainer } from '../../../src/components/containers'
 
 const { shallow, mount } = Enzyme
 
@@ -20,7 +20,7 @@ describe('<Menu /> Container ', () => {
 
   beforeAll(() => wrapper = mount(
     <Provider store={_store}>
-      <Menu />
+      <MenuContainer />
     </Provider>,
   ))
 
