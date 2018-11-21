@@ -12,7 +12,7 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     publicPath: '/assets/',
-    port: 3000,
+    port: 3333,
   },
   module: {
     rules: [

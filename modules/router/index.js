@@ -7,7 +7,7 @@ window.React = React
 
 const root_render = () => render(
   <HashRouter>
-    <div>
+    <div className="main">
       <Switch>
         <Route exact
                path="/"

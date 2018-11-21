@@ -1,7 +1,15 @@
 import { Link } from 'react-router-dom'
+import { MainMenu } from './menus'
+import './stylesheets/pages.scss'
+
+const PageTemplate = ({ children }) =>
+  <div className="page">
+    <MainMenu />
+    {children}
+  </div>
 
 export const Home = () =>
-  <div>
+  <div className="home">
     <h1>[Company Website]</h1>
     <nav>
       <Link to="about">[About]</Link>
@@ -17,21 +25,29 @@ export const Whoops404 = ({ location }) =>
   </div>
 
 export const About = () =>
-  <section>
-    <h1>[About the Company]</h1>
-  </section>
+  <PageTemplate>
+    <section>
+      <h1>[About the Company]</h1>
+    </section>
+  </PageTemplate>
 
 export const Events = () =>
-  <section>
-    <h1>[Events Calendar]</h1>
-  </section>
+  <PageTemplate>
+    <section>
+      <h1>[Events Calendar]</h1>
+    </section>
+  </PageTemplate>
 
 export const Products = () =>
-  <section>
-    <h1>[Products Catalog]</h1>
-  </section>
+  <PageTemplate>
+    <section>
+      <h1>[Products Catalog]</h1>
+    </section>
+  </PageTemplate>
 
 export const Contact = () =>
-  <section>
-    <h1>[Contact Us]</h1>
-  </section>
+  <PageTemplate>
+    <section>
+      <h1>[Contact Us]</h1>
+    </section>
+  </PageTemplate>
