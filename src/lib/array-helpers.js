@@ -1,3 +1,5 @@
+import { compose } from 'redux'
+
 const sortByDate = field =>
   (a, b) => new Date(b[field]) - new Date(a[field])
 
@@ -20,3 +22,13 @@ export const sortFunction = sort =>
     : (sort === 'SORTED_BY_RATING')
     ? sortBy('number', 'rating')
     : sortBy('date', 'timestamp')
+
+export const getFirstArrayItem = array => array[0]
+
+export const filterArrayById = (array, id) =>
+  array.filter(item => item.id === id)
+
+export const findById = compose(
+  getFirstArrayItem,
+  filterArrayById,
+)

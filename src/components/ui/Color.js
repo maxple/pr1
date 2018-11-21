@@ -4,19 +4,22 @@ import StarRating from './StarRating'
 import TimeAgo from './TimeAgo'
 import { FaTrash } from 'react-icons/fa'
 import '../../stylesheets/Color.scss'
+import { withRouter } from 'react-router-dom'
 
 class Color extends Component {
 
   render () {
-    const { title, color, rating, timestamp, onRemove, onRate } = this.props
+    const { id, title, color, rating, timestamp, onRemove, onRate, history } = this.props
     return (
       <section className="color"
                style={this.style}>
-        <h1 ref="title">{title}</h1>
+        <h1 ref="title"
+            onClick={() => history.push(`/${id}`)}>{title}</h1>
         <button onClick={onRemove}>
           <FaTrash />
         </button>
         <div className="color"
+             onClick={() => history.push(`/${id}`)}
              style={{ backgroundColor: color }}>
         </div>
         <TimeAgo timestamp={timestamp} />
@@ -44,4 +47,4 @@ Color.defaultProps = {
   onRate: f => f,
 }
 
-export default Color
+export default withRouter(Color)

@@ -1,3 +1,3 @@
-import root_render from './modules/router'
+import root_render from './src'
 
 root_render()
