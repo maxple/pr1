@@ -1,11 +1,11 @@
-const sortBy = (field) => {
+const sortBy = field => {
   switch (field) {
     case 'title':
       return (a, b) => (a[field] < b[field]) ? -1 : 1
     case 'rating':
       return (a, b) => b[field] - a[field]
     default:
-      return (a, b) => new Date(b[field]) - new Date(a[field])
+      return (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
   }
 }
 

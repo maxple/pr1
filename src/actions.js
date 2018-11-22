@@ -22,9 +22,3 @@ export const rateColor = (id, rating) =>
     id,
     rating,
   })
-
-export const sortColors = (sortBy = 'SORTED_BY_DATE') =>
-  ({
-    type: C.SORT_COLORS,
-    sortBy,
-  })

@@ -95,25 +95,4 @@ describe('Action Creators', () => {
 
   })
 
-  describe('sortColors', () => {
-
-    beforeAll(() => store = storeFactory())
-
-    it('can dispatch sort colors', () => {
-      store.dispatch(sortColors('SORTED_BY_RATING'))
-      expect(store.getState().sort).toEqual('SORTED_BY_RATING')
-    })
-
-    it('can sort by title', () => {
-      store.dispatch(sortColors('SORTED_BY_TITLE'))
-      expect(store.getState().sort).toEqual('SORTED_BY_TITLE')
-    })
-
-    it('(default) sorts colors by date', () => {
-      store.dispatch(sortColors())
-      expect(store.getState().sort).toEqual('SORTED_BY_DATE')
-    })
-
-  })
-
 })

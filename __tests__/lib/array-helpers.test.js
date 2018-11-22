@@ -1,4 +1,4 @@
-import { sortFunction } from '../../src/lib/array-helpers'
+import { sortColors } from '../../src/lib/array-helpers'
 
 describe('Array Helpers', () => {
 
@@ -28,7 +28,7 @@ describe('Array Helpers', () => {
     ]
 
     it('sorts by title', () => {
-      const sorted = [...data].sort(sortFunction('SORTED_BY_TITLE'))
+      const sorted = sortColors(data, 'title')
       expect(sorted).toEqual([
         {
           title: 'California',
@@ -54,7 +54,7 @@ describe('Array Helpers', () => {
     })
 
     it('sorts by rating', () => {
-      const sorted = [...data].sort(sortFunction('SORTED_BY_RATING'))
+      const sorted = sortColors(data, 'rating')
       expect(sorted).toEqual([
         {
           title: 'Illinois',
@@ -80,7 +80,7 @@ describe('Array Helpers', () => {
     })
 
     it('sorts by date', () => {
-      const sorted = [...data].sort(sortFunction('SORTED_BY_DATE'))
+      const sorted = sortColors(data)
       expect(sorted).toEqual([
         {
           title: 'Maryland',
