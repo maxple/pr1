@@ -1,5 +1,7 @@
 import { Route, Switch } from 'react-router-dom'
-import { ColorContainer, ColorsContainer, MenuContainer, NewColorContainer } from './containers'
+import Menu from './ui/Menu'
+import Whoops404 from './ui/Whoops404'
+import { ColorContainer, ColorsContainer, NewColorContainer } from './containers'
 import '../stylesheets/APP.scss'
 
 const App = () =>
@@ -10,9 +12,16 @@ const App = () =>
     <Route path="/"
            component={() => (
              <div className="app">
-               <MenuContainer />
+               <Route component={Menu} />
                <NewColorContainer />
-               <ColorsContainer />
+               <Switch>
+                 <Route exact
+                        path="/"
+                        component={ColorsContainer} />
+                 <Route path="/sort/:sort"
+                        component={ColorsContainer} />
+                 <Route component={Whoops404} />
+               </Switch>
              </div>
            )} />
   </Switch>

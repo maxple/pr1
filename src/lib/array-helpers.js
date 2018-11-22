@@ -23,6 +23,23 @@ export const sortFunction = sort =>
     ? sortBy('number', 'rating')
     : sortBy('date', 'timestamp')
 
+const getSortState = (sortBy = 'date',
+                      stateHash = {
+                        date: 'SORTED_BY_DATE',
+                        title: 'SORTED_BY_TITLE',
+                        rating: 'SORTED_BY_RATING',
+                      }) => stateHash[sortBy]
+
+const locateSortFunction = compose(
+  sortFunction,
+  getSortState,
+)
+
+export const sortColors = (colors, sortBy) => compose(
+  fn => [...colors].sort(fn),
+  locateSortFunction,
+)(sortBy)
+
 export const getFirstArrayItem = array => array[0]
 
 export const filterArrayById = (array, id) =>
