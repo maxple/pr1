@@ -41,3 +41,4 @@ globals:
   __dirname: true
   _testColors: true
   Enzyme: true
+  __DATA__: true

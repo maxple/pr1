@@ -10,7 +10,8 @@
         "test": "jest",
         "posttest": "npm run lint",
         "coverage": "opener ./coverage/lcov-report/index.html",
-        "node": "babel-node index-server.js"
+        "prenode": "webpack --mode development",
+        "node": "opener http://localhost:3003 & babel-node index-server.js"
     },
     "devDependencies": {
         "autoprefixer": "^9.1.2",
