@@ -42,3 +42,4 @@ globals:
   _testColors: true
   Enzyme: true
   __DATA__: true
+  process: true

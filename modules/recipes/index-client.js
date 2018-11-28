@@ -1,6 +1,6 @@
 import React from 'react'
 import { hydrate } from 'react-dom'
-import Menu from './modules/recipes/components/Menu.js'
+import Menu from './components/Menu.js'
 
 window.React = React
 

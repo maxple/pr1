@@ -13,7 +13,6 @@ describe('<Colors /> Container ', () => {
     subscribe: jest.fn(),
     getState: jest.fn(() =>
       ({
-        sort: 'SORTED_BY_DATE',
         colors: _testColors,
       }),
     ),

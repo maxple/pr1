@@ -3,7 +3,7 @@ var path = require('path')
 module.exports = {
   context: __dirname,
   devtool: 'source-map',
-  entry: './index-client.js',
+  entry: './index.js',
   output: {
     path: path.join(__dirname, 'dist', 'assets'),
     filename: 'bundle.js',

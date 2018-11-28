@@ -1,8 +1,8 @@
 import React from 'react'
 import express from 'express'
 import { renderToString } from 'react-dom/server'
-import Menu from './modules/recipes/components/Menu.js'
-import data from './modules/recipes/data/recipes.json'
+import Menu from './components/Menu.js'
+import data from './data/recipes.json'
 
 global.React = React
 

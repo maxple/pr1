@@ -1,5 +1,3 @@
-import { render } from 'react-dom'
-
 jest.mock('react-dom')
 jest.mock('../src/store/index', () => () => ({
   subscribe: jest.fn(),

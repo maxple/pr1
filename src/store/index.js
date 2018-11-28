@@ -1,31 +1,27 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux'
-import { colors, sort } from './reducers'
-import stateData from '../../data/initialState'
+import { colors } from './reducers'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
-let console = window.console
-
-const logger = store => next => action => {
-  let result
-  console.groupCollapsed('dispatching', action.type)
+const clientLogger = store => next => action => {
+  console.groupCollapsed('dispatching client action', action.type)
   console.log('prev state', store.getState())
   console.log('action', action)
-  result = next(action)
+  const result = next(action)
   console.log('next state', store.getState())
   console.groupEnd()
   return result
 }
 
-const saver = store => next => action => {
-  let result = next(action)
-  localStorage['redux-store'] = JSON.stringify(store.getState())
-  return result
+const serverLogger = store => next => action => {
+  console.log('\ndispatching server action\n')
+  console.log(action)
+  console.log('\n')
+  return next(action)
 }
 
-const storeFactory = (initState = stateData) => {
-  const rs = localStorage['redux-store']
-  return applyMiddleware(logger, saver)(createStore)(
-    combineReducers({ colors, sort }),
-    rs ? JSON.parse(rs) || initState : initState)
-}
+const storeFactory = (server = false, initialState = {}) => createStore(
+  combineReducers({ colors }),
+  initialState,
+  composeWithDevTools(applyMiddleware(server ? serverLogger : clientLogger)))
 
 export default storeFactory
