@@ -1,4 +1,6 @@
-var path = require('path')
+const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = {
   context: __dirname,
@@ -14,6 +16,16 @@ module.exports = {
     publicPath: '/assets/',
     port: 3333,
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'bundle.css',
+    }),
+    new OptimizeCssAssetsPlugin({
+      cssProcessorPluginOptions: {
+        preset: ['default', { discardComments: { removeAll: true } }],
+      },
+    }),
+  ],
   module: {
     rules: [
       {
@@ -25,24 +37,18 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
-          'style-loader', 'css-loader', {
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
             loader: 'postcss-loader',
             options: {
               plugins: () => [require('autoprefixer')],
             },
-          }],
-      },
-      {
-        test: /\.scss/,
-        use: [
-          'style-loader', 'css-loader', {
-            loader: 'postcss-loader',
-            options: {
-              plugins: () => [require('autoprefixer')],
-            },
-          }, 'sass-loader'],
+          },
+          'sass-loader',
+        ],
       },
     ],
   },
