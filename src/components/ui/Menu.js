@@ -1,17 +1,14 @@
 import PropTypes from 'prop-types'
-import { NavLink } from 'react-router-dom'
+import { NavLink as Link } from 'react-router-dom'
 import '../../stylesheets/Menu.scss'
 
 const selectedStyle = { color: 'red' }
 
-const Menu = ({ match }) =>
+const Menu = ({ sort }) =>
   <nav className="menu">
-    <NavLink to="/"
-             style={match.isExact && selectedStyle}>date</NavLink>
-    <NavLink to="/sort/title"
-             activeStyle={selectedStyle}>title</NavLink>
-    <NavLink to="/sort/rating"
-             activeStyle={selectedStyle}>rating</NavLink>
+    <Link to="/" activeStyle={(sort === '/') ? selectedStyle : {}}>date</Link>
+    <Link to="/sort/title" activeStyle={selectedStyle}>title</Link>
+    <Link to="/sort/rating" activeStyle={selectedStyle}>rating</Link>
   </nav>
 
 Menu.propTypes = {
