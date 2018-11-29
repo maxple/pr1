@@ -23,6 +23,7 @@ module.exports = {
     new OptimizeCssAssetsPlugin({
       cssProcessorPluginOptions: {
         preset: ['default', { discardComments: { removeAll: true } }],
+        canPrint: false,
       },
     }),
   ],
