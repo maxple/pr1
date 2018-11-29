@@ -8,6 +8,8 @@ import { compose } from 'redux'
 import { StaticRouter } from 'react-router-dom'
 import { renderToString } from 'react-dom/server'
 import App from '../components/App'
+import bodyParser from 'body-parser'
+import api from './color-api'
 
 const staticCSS = fs.readFileSync(path.join(__dirname, '../../dist/assets/bundle.css'))
 
@@ -78,7 +80,9 @@ const htmlResponse = compose(
 )
 
 export default express()
+  .use(bodyParser.json())
   .use(logger)
   .use(fileAssets)
   .use(addStoreToRequestPipeline)
+  .use('/api', api)
   .use(respond)
