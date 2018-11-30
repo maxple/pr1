@@ -11,4 +11,4 @@ const sortBy = field => {
 
 export const sortColors = (colors, field) => [...colors].sort(sortBy(field))
 
-export const findById = (array, id) => array.filter(item => item.id === id)[0]
+export const findById = (array, id) => array.filter(item => item.id === id)[0] || { title: '', color: '' }

@@ -32,5 +32,7 @@ export const ColorsContainer = connect(
 )(ColorList)
 
 export const ColorContainer = connect(
-  (state, { match }) => findById(state.colors, match.params.id),
+  (state, { match }) => ({
+    ...findById(state.colors, match.params.id),
+  }),
 )(ColorDetails)

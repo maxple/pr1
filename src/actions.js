@@ -1,9 +1,5 @@
 import fetch from 'isomorphic-fetch'
 
-const parseResponse = response => response.json()
-
-const logError = error => console.error(error)
-
 const fetchThenDispatch = (dispatch, url, method, body) =>
   fetch(url,
     {
@@ -12,9 +8,9 @@ const fetchThenDispatch = (dispatch, url, method, body) =>
       headers:
         { 'Content-Type': 'application/json' },
     })
-    .then(parseResponse)
+    .then(response => response.json())
     .then(dispatch)
-    .catch(logError)
+    .catch(error => console.error(error))
 
 export const addColor = (title, color) => dispatch =>
   fetchThenDispatch(
